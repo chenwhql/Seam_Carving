@@ -32,10 +32,6 @@ CSeamCarvingApp::CSeamCarvingApp()
 // 唯一的一个 CSeamCarvingApp 对象
 
 CSeamCarvingApp theApp;
-int damage[MAX_SIZE][MAX_SIZE];
-int sum_damage[MAX_SIZE][MAX_SIZE];
-int route[MAX_SIZE][MAX_SIZE];
-
 
 // CSeamCarvingApp 初始化
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdint.h>
 #include <iostream>
 #include <sstream>
 #include <algorithm>
@@ -16,14 +17,18 @@ class CSeamCarvingMethod
 public:
 	CSeamCarvingMethod();
 	~CSeamCarvingMethod();
-	static Mat& ScanImageAndReduceC(Mat& I);
 	static void ScanImageTest(Mat& I, CString& str);
 	static void GetDamageLaplacian(Mat& I_src, Mat& I_dst);
 	static void GetDamageSobel(Mat& I_src, Mat& I_dst);
-	static void SeamDamageCalc(Mat& I);
-	static void ImgDamageCalc(Mat& I);
-	static void FindNumFrontSeam(Mat& I, vector<int>& rlt, int num);
-	static void SeamSign(Mat& I, vector<int>& seamCol);
-	static void OneSeamPaint(Mat_<Vec3b>& _I, int row, int col);
+	static void GetVerticalLeastDamageSeam(Mat& dmg, vector<unsigned int>& seam);
+	static void RemoveVerticalLeastDamageSeam(Mat& I, vector<unsigned int>& seam);
+	static void GetHorizontalLeastDamageSeam(Mat& dmg, vector<unsigned int>& seam);
+	static void RemoveHorizontalLeastDamageSeam(Mat& I, vector<unsigned int>& seam);
+	static void ImgDamageCalc(Mat& I, Mat& dmg);
+	static void SignVerticalSeam(Mat& I, vector<unsigned int> seam);
+	static void SignHorizontalSeam(Mat& I, vector<unsigned int> seam);
+	static void GetOptimalSeamOrder(Mat& I_src, uchar** order_map);
+	static unsigned int GetVerticalLeastDamageSeamDamage(Mat& dmg);
+	static unsigned int GetHorizontalLeastDamageSeamDamage(Mat& dmg);
 };
 

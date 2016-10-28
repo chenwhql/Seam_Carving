@@ -9,6 +9,8 @@
 #include "Opencv2/opencv.hpp"
 #include "CvvImage.h"
 #include "D:\Program Files\opencv\build\include\opencv2\core\core.hpp"
+#include "afxcmn.h"
+#include "afxwin.h"
 using namespace std;
 using namespace cv;
 
@@ -45,5 +47,18 @@ public:
 	Mat image;
 	afx_msg void OnEnChangeEditMsg();
 	Mat damage_grad;
-//	void cvLoadImage(Mat& img);
+	Mat damage;
+	afx_msg void OnBnClickedButtonCalc();
+//	CProgressCtrl m_pro;
+//	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	afx_msg void OnDestroy();
+	Mat image_show;
+	afx_msg void OnBnClickedButtonCompress();
+	afx_msg void OnBnClickedButtonCarving();
+	void ResizeImage(Mat &img, CRect rect, Mat &dst_img, int method);
+	void ShowImage(Mat& img, UINT ID, int method);
+	afx_msg void OnStnClickedStaticText();
+	CStatic hint;
+	int show_flag;
+	Mat image_src;
 };
